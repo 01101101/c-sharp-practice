@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ticket_price
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            int number = 0;
+            string message = string.Empty;
+            Console.Write("Select your data: \n Your age is 7 under press 1: \n Your age is 65 or over press 2: \n Your age is 7-15 press 3: \n You are member of Mtk press 4: \n You are in the army press 5: \n You are a student press 6: ");
+            bool result = int.TryParse(Console.ReadLine()), out number):
+            Console.ReadKey();
+        }
+
+    }
+}
