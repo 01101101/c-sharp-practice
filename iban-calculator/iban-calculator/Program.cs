@@ -4,65 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//This program randomizes the checked account number so the test environment is very controlled. No user interference allowed!
 
 namespace iban_calculator
 {
-    class Test
-    {
-        public int[] IbanCheckNumberCalculator(int iban)
-        {
-            int[] ibanArray = iban.ToString().Select(o => Convert.ToInt32(o)).ToArray();
-            //string ibanString = iban.ToString();
-            //char[] ibanArray = ibanString.ToCharArray();
-            
 
-             for (int i = 0; i <= 13; i++)
-             {
 
-                if ((ibanArray[i] % 2) == 0)
-                {
-                    Console.WriteLine(ibanArray[i] * 2);
-                }
-                else
-                {
-                    Console.WriteLine(ibanArray[i] * 1);
-                 }
-             }
-            return ibanArray;
-        }
-
-    }
-
-    /*class BBANtoIBAN
-    {
-        public string Converter(int bban)
-        {
-            if(bban )
-            {
-
-            }
-        }
-    }*/
     class Program
     {
         static void Main(string[] args)
         {
-            string input = string.Empty;
-            //BBANtoIBAN b = new BBANtoIBAN();
-            Test t = new Test();
-            //string inputParsed = string.Empty;
-            //int bban = 0;
-            int iban = 0;
+            BbanTools bT = new BbanTools();
+            IbanTools iT = new IbanTools();
+            string bban = bT.CreateBBan();
+            List<string> bankAccounts = new List<string>();
+            for (int i = 0; i< 10; i++) //Creating random numbers for testing purposes
+            {  
+                bankAccounts.Add(bT.CreateBBan());
+            }
+            
+            foreach (var bankAccount in bankAccounts)//Calculating IBAN from BBAN number
+            {
+                Console.WriteLine(iT.CalculatingIban(bankAccount));
+            }
 
-            //while (input.Length <= 8)
-            Console.WriteLine("Give me a iban-number");
-            //input = int.TryParse(Console.ReadLine());
-            //inputParsed = input.Replace("-", "");
-            bool isNumber = int.TryParse(Console.ReadLine(), out iban);
-            //b.Converter(bban);
-            Console.WriteLine(t.IbanCheckNumberCalculator(iban));
-            Console.ReadLine();
-
+            
+            Console.ReadKey();
         }
     }
 }

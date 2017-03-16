@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bban.cs" />
-    <Compile Include="Iban.cs" />
+    <Compile Include="BbanTools.cs" />
+    <Compile Include="IbanTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
