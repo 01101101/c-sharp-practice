@@ -18,7 +18,7 @@ namespace iban_calculator
 
             for (int i = 0; i < bbanList.Count; i++)
             {
-                if (bbanList[i] == '4') //you could check the bban number against any amount of bank identifier numbers here it is used as 4 only as testing purposes
+                if (bbanList[i] == '4') //you could check the bban number against any amount of bank identifier numbers. For testing purposes it is set to 4.
                 {
                     if (ibanNumber.Length < 14) //checking if the given bban number is the right size if less than 14 then zeroes are added. Zeroes starting point is set by the bank identifier number
                     {
@@ -33,6 +33,7 @@ namespace iban_calculator
                         }
                         break;
                     }
+                    break;
                 }
                 else
                 {
@@ -59,7 +60,7 @@ namespace iban_calculator
             ibanNumber2 = ibanNumber2.Replace("F", "15").Replace("I", "18");
 
             
-            decimal a = decimal.Parse(ibanNumber);
+            decimal a = decimal.Parse(ibanNumber2);
             a = 98 - (a % 97);
             //string test1 = "this is your number divided: " + a;
             if (a < 10)
